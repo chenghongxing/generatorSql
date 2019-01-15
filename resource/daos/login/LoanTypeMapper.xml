@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.portal.login.dao.LoanTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.portal.login.domain.LoanType" >
+    <id column="seq_no" property="seqNo" jdbcType="BIGINT" />
+    <result column="instu_cde" property="instuCde" jdbcType="VARCHAR" />
+    <result column="typ_cde" property="typCde" jdbcType="VARCHAR" />
+    <result column="typ_desc" property="typDesc" jdbcType="VARCHAR" />
+    <result column="typ_grp" property="typGrp" jdbcType="VARCHAR" />
+    <result column="sence" property="sence" jdbcType="VARCHAR" />
+    <result column="sts" property="sts" jdbcType="VARCHAR" />
+    <result column="last_chg_usr" property="lastChgUsr" jdbcType="VARCHAR" />
+    <result column="last_chg_date" property="lastChgDate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_no, instu_cde, typ_cde, typ_desc, typ_grp, sence, sts, last_chg_usr, last_chg_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from loan_type
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from loan_type
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.portal.login.domain.LoanType" >
+    insert into loan_type (seq_no, instu_cde, typ_cde, 
+      typ_desc, typ_grp, sence, 
+      sts, last_chg_usr, last_chg_date
+      )
+    values (#{seqNo,jdbcType=BIGINT}, #{instuCde,jdbcType=VARCHAR}, #{typCde,jdbcType=VARCHAR}, 
+      #{typDesc,jdbcType=VARCHAR}, #{typGrp,jdbcType=VARCHAR}, #{sence,jdbcType=VARCHAR}, 
+      #{sts,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, #{lastChgDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.portal.login.domain.LoanType" >
+    insert into loan_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        seq_no,
+      </if>
+      <if test="instuCde != null" >
+        instu_cde,
+      </if>
+      <if test="typCde != null" >
+        typ_cde,
+      </if>
+      <if test="typDesc != null" >
+        typ_desc,
+      </if>
+      <if test="typGrp != null" >
+        typ_grp,
+      </if>
+      <if test="sence != null" >
+        sence,
+      </if>
+      <if test="sts != null" >
+        sts,
+      </if>
+      <if test="lastChgUsr != null" >
+        last_chg_usr,
+      </if>
+      <if test="lastChgDate != null" >
+        last_chg_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=BIGINT},
+      </if>
+      <if test="instuCde != null" >
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="typCde != null" >
+        #{typCde,jdbcType=VARCHAR},
+      </if>
+      <if test="typDesc != null" >
+        #{typDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="typGrp != null" >
+        #{typGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="sence != null" >
+        #{sence,jdbcType=VARCHAR},
+      </if>
+      <if test="sts != null" >
+        #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null" >
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDate != null" >
+        #{lastChgDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.portal.login.domain.LoanType" >
+    update loan_type
+    <set >
+      <if test="instuCde != null" >
+        instu_cde = #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="typCde != null" >
+        typ_cde = #{typCde,jdbcType=VARCHAR},
+      </if>
+      <if test="typDesc != null" >
+        typ_desc = #{typDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="typGrp != null" >
+        typ_grp = #{typGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="sence != null" >
+        sence = #{sence,jdbcType=VARCHAR},
+      </if>
+      <if test="sts != null" >
+        sts = #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null" >
+        last_chg_usr = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDate != null" >
+        last_chg_date = #{lastChgDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.portal.login.domain.LoanType" >
+    update loan_type
+    set instu_cde = #{instuCde,jdbcType=VARCHAR},
+      typ_cde = #{typCde,jdbcType=VARCHAR},
+      typ_desc = #{typDesc,jdbcType=VARCHAR},
+      typ_grp = #{typGrp,jdbcType=VARCHAR},
+      sence = #{sence,jdbcType=VARCHAR},
+      sts = #{sts,jdbcType=VARCHAR},
+      last_chg_usr = #{lastChgUsr,jdbcType=VARCHAR},
+      last_chg_date = #{lastChgDate,jdbcType=VARCHAR}
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </update>
+</mapper>

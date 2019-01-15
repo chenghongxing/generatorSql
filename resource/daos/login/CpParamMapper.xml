@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.portal.login.dao.CpParamMapper" >
+  <resultMap id="BaseResultMap" type="com.portal.login.domain.CpParam" >
+    <id column="seq_no" property="seqNo" jdbcType="BIGINT" />
+    <result column="product_code" property="productCode" jdbcType="VARCHAR" />
+    <result column="param_cnname" property="paramCnname" jdbcType="VARCHAR" />
+    <result column="param_enname" property="paramEnname" jdbcType="VARCHAR" />
+    <result column="param_value" property="paramValue" jdbcType="VARCHAR" />
+    <result column="read_flag" property="readFlag" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_no, product_code, param_cnname, param_enname, param_value, read_flag, description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from cp_param
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cp_param
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.portal.login.domain.CpParam" >
+    insert into cp_param (seq_no, product_code, param_cnname, 
+      param_enname, param_value, read_flag, 
+      description)
+    values (#{seqNo,jdbcType=BIGINT}, #{productCode,jdbcType=VARCHAR}, #{paramCnname,jdbcType=VARCHAR}, 
+      #{paramEnname,jdbcType=VARCHAR}, #{paramValue,jdbcType=VARCHAR}, #{readFlag,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.portal.login.domain.CpParam" >
+    insert into cp_param
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        seq_no,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="paramCnname != null" >
+        param_cnname,
+      </if>
+      <if test="paramEnname != null" >
+        param_enname,
+      </if>
+      <if test="paramValue != null" >
+        param_value,
+      </if>
+      <if test="readFlag != null" >
+        read_flag,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=BIGINT},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCnname != null" >
+        #{paramCnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramEnname != null" >
+        #{paramEnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramValue != null" >
+        #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null" >
+        #{readFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.portal.login.domain.CpParam" >
+    update cp_param
+    <set >
+      <if test="productCode != null" >
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCnname != null" >
+        param_cnname = #{paramCnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramEnname != null" >
+        param_enname = #{paramEnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramValue != null" >
+        param_value = #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null" >
+        read_flag = #{readFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.portal.login.domain.CpParam" >
+    update cp_param
+    set product_code = #{productCode,jdbcType=VARCHAR},
+      param_cnname = #{paramCnname,jdbcType=VARCHAR},
+      param_enname = #{paramEnname,jdbcType=VARCHAR},
+      param_value = #{paramValue,jdbcType=VARCHAR},
+      read_flag = #{readFlag,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where seq_no = #{seqNo,jdbcType=BIGINT}
+  </update>
+</mapper>
