@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.portal.login.dao.WyryxxPoMapper" >
+  <resultMap id="BaseResultMap" type="com.portal.login.domain.WyryxxPo" >
+    <id column="ryxxryid" property="ryxxryid" jdbcType="VARCHAR" />
+    <result column="ryxxxm00" property="ryxxxm00" jdbcType="VARCHAR" />
+    <result column="ryxxxb00" property="ryxxxb00" jdbcType="VARCHAR" />
+    <result column="ryxxsfz0" property="ryxxsfz0" jdbcType="VARCHAR" />
+    <result column="ryxxmz00" property="ryxxmz00" jdbcType="VARCHAR" />
+    <result column="ryxxcsrq" property="ryxxcsrq" jdbcType="DATE" />
+    <result column="ryrqcgsj" property="ryrqcgsj" jdbcType="VARCHAR" />
+    <result column="ryxxlxdh" property="ryxxlxdh" jdbcType="VARCHAR" />
+    <result column="ryxxwhcd" property="ryxxwhcd" jdbcType="VARCHAR" />
+    <result column="ryxxyxzy" property="ryxxyxzy" jdbcType="VARCHAR" />
+    <result column="ryxxdwxz" property="ryxxdwxz" jdbcType="VARCHAR" />
+    <result column="ryxxjg01" property="ryxxjg01" jdbcType="VARCHAR" />
+    <result column="ryxxjg02" property="ryxxjg02" jdbcType="VARCHAR" />
+    <result column="ryxxjg03" property="ryxxjg03" jdbcType="VARCHAR" />
+    <result column="ryxxyb00" property="ryxxyb00" jdbcType="VARCHAR" />
+    <result column="ryxxlxs0" property="ryxxlxs0" jdbcType="VARCHAR" />
+    <result column="ryxxlxs1" property="ryxxlxs1" jdbcType="VARCHAR" />
+    <result column="ryxxlxqx" property="ryxxlxqx" jdbcType="VARCHAR" />
+    <result column="ryxxxxdz" property="ryxxxxdz" jdbcType="VARCHAR" />
+    <result column="ryxxqtsm" property="ryxxqtsm" jdbcType="VARCHAR" />
+    <result column="ryxxzp00" property="ryxxzp00" jdbcType="VARCHAR" />
+    <result column="ryxxyxbz" property="ryxxyxbz" jdbcType="VARCHAR" />
+    <result column="ryxxczdm" property="ryxxczdm" jdbcType="VARCHAR" />
+    <result column="ryxxczr0" property="ryxxczr0" jdbcType="VARCHAR" />
+    <result column="ryxxczsj" property="ryxxczsj" jdbcType="TIMESTAMP" />
+    <result column="motiondzobject" property="motiondzobject" jdbcType="VARCHAR" />
+    <result column="motionjgobject" property="motionjgobject" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ryxxryid, ryxxxm00, ryxxxb00, ryxxsfz0, ryxxmz00, ryxxcsrq, ryrqcgsj, ryxxlxdh, ryxxwhcd, 
+    ryxxyxzy, ryxxdwxz, ryxxjg01, ryxxjg02, ryxxjg03, ryxxyb00, ryxxlxs0, ryxxlxs1, ryxxlxqx, 
+    ryxxxxdz, ryxxqtsm, ryxxzp00, ryxxyxbz, ryxxczdm, ryxxczr0, ryxxczsj, motiondzobject, 
+    motionjgobject
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_ryxx
+    where ryxxryid = #{ryxxryid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from wy_ryxx
+    where ryxxryid = #{ryxxryid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.portal.login.domain.WyryxxPo" >
+    insert into wy_ryxx (ryxxryid, ryxxxm00, ryxxxb00, 
+      ryxxsfz0, ryxxmz00, ryxxcsrq, 
+      ryrqcgsj, ryxxlxdh, ryxxwhcd, 
+      ryxxyxzy, ryxxdwxz, ryxxjg01, 
+      ryxxjg02, ryxxjg03, ryxxyb00, 
+      ryxxlxs0, ryxxlxs1, ryxxlxqx, 
+      ryxxxxdz, ryxxqtsm, ryxxzp00, 
+      ryxxyxbz, ryxxczdm, ryxxczr0, 
+      ryxxczsj, motiondzobject, motionjgobject
+      )
+    values (#{ryxxryid,jdbcType=VARCHAR}, #{ryxxxm00,jdbcType=VARCHAR}, #{ryxxxb00,jdbcType=VARCHAR}, 
+      #{ryxxsfz0,jdbcType=VARCHAR}, #{ryxxmz00,jdbcType=VARCHAR}, #{ryxxcsrq,jdbcType=DATE}, 
+      #{ryrqcgsj,jdbcType=VARCHAR}, #{ryxxlxdh,jdbcType=VARCHAR}, #{ryxxwhcd,jdbcType=VARCHAR}, 
+      #{ryxxyxzy,jdbcType=VARCHAR}, #{ryxxdwxz,jdbcType=VARCHAR}, #{ryxxjg01,jdbcType=VARCHAR}, 
+      #{ryxxjg02,jdbcType=VARCHAR}, #{ryxxjg03,jdbcType=VARCHAR}, #{ryxxyb00,jdbcType=VARCHAR}, 
+      #{ryxxlxs0,jdbcType=VARCHAR}, #{ryxxlxs1,jdbcType=VARCHAR}, #{ryxxlxqx,jdbcType=VARCHAR}, 
+      #{ryxxxxdz,jdbcType=VARCHAR}, #{ryxxqtsm,jdbcType=VARCHAR}, #{ryxxzp00,jdbcType=VARCHAR}, 
+      #{ryxxyxbz,jdbcType=VARCHAR}, #{ryxxczdm,jdbcType=VARCHAR}, #{ryxxczr0,jdbcType=VARCHAR}, 
+      #{ryxxczsj,jdbcType=TIMESTAMP}, #{motiondzobject,jdbcType=VARCHAR}, #{motionjgobject,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.portal.login.domain.WyryxxPo" >
+    insert into wy_ryxx
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ryxxryid != null" >
+        ryxxryid,
+      </if>
+      <if test="ryxxxm00 != null" >
+        ryxxxm00,
+      </if>
+      <if test="ryxxxb00 != null" >
+        ryxxxb00,
+      </if>
+      <if test="ryxxsfz0 != null" >
+        ryxxsfz0,
+      </if>
+      <if test="ryxxmz00 != null" >
+        ryxxmz00,
+      </if>
+      <if test="ryxxcsrq != null" >
+        ryxxcsrq,
+      </if>
+      <if test="ryrqcgsj != null" >
+        ryrqcgsj,
+      </if>
+      <if test="ryxxlxdh != null" >
+        ryxxlxdh,
+      </if>
+      <if test="ryxxwhcd != null" >
+        ryxxwhcd,
+      </if>
+      <if test="ryxxyxzy != null" >
+        ryxxyxzy,
+      </if>
+      <if test="ryxxdwxz != null" >
+        ryxxdwxz,
+      </if>
+      <if test="ryxxjg01 != null" >
+        ryxxjg01,
+      </if>
+      <if test="ryxxjg02 != null" >
+        ryxxjg02,
+      </if>
+      <if test="ryxxjg03 != null" >
+        ryxxjg03,
+      </if>
+      <if test="ryxxyb00 != null" >
+        ryxxyb00,
+      </if>
+      <if test="ryxxlxs0 != null" >
+        ryxxlxs0,
+      </if>
+      <if test="ryxxlxs1 != null" >
+        ryxxlxs1,
+      </if>
+      <if test="ryxxlxqx != null" >
+        ryxxlxqx,
+      </if>
+      <if test="ryxxxxdz != null" >
+        ryxxxxdz,
+      </if>
+      <if test="ryxxqtsm != null" >
+        ryxxqtsm,
+      </if>
+      <if test="ryxxzp00 != null" >
+        ryxxzp00,
+      </if>
+      <if test="ryxxyxbz != null" >
+        ryxxyxbz,
+      </if>
+      <if test="ryxxczdm != null" >
+        ryxxczdm,
+      </if>
+      <if test="ryxxczr0 != null" >
+        ryxxczr0,
+      </if>
+      <if test="ryxxczsj != null" >
+        ryxxczsj,
+      </if>
+      <if test="motiondzobject != null" >
+        motiondzobject,
+      </if>
+      <if test="motionjgobject != null" >
+        motionjgobject,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ryxxryid != null" >
+        #{ryxxryid,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxxm00 != null" >
+        #{ryxxxm00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxxb00 != null" >
+        #{ryxxxb00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxsfz0 != null" >
+        #{ryxxsfz0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxmz00 != null" >
+        #{ryxxmz00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxcsrq != null" >
+        #{ryxxcsrq,jdbcType=DATE},
+      </if>
+      <if test="ryrqcgsj != null" >
+        #{ryrqcgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxdh != null" >
+        #{ryxxlxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxwhcd != null" >
+        #{ryxxwhcd,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyxzy != null" >
+        #{ryxxyxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxdwxz != null" >
+        #{ryxxdwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg01 != null" >
+        #{ryxxjg01,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg02 != null" >
+        #{ryxxjg02,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg03 != null" >
+        #{ryxxjg03,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyb00 != null" >
+        #{ryxxyb00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxs0 != null" >
+        #{ryxxlxs0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxs1 != null" >
+        #{ryxxlxs1,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxqx != null" >
+        #{ryxxlxqx,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxxxdz != null" >
+        #{ryxxxxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxqtsm != null" >
+        #{ryxxqtsm,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxzp00 != null" >
+        #{ryxxzp00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyxbz != null" >
+        #{ryxxyxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczdm != null" >
+        #{ryxxczdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczr0 != null" >
+        #{ryxxczr0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczsj != null" >
+        #{ryxxczsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="motiondzobject != null" >
+        #{motiondzobject,jdbcType=VARCHAR},
+      </if>
+      <if test="motionjgobject != null" >
+        #{motionjgobject,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.portal.login.domain.WyryxxPo" >
+    update wy_ryxx
+    <set >
+      <if test="ryxxxm00 != null" >
+        ryxxxm00 = #{ryxxxm00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxxb00 != null" >
+        ryxxxb00 = #{ryxxxb00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxsfz0 != null" >
+        ryxxsfz0 = #{ryxxsfz0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxmz00 != null" >
+        ryxxmz00 = #{ryxxmz00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxcsrq != null" >
+        ryxxcsrq = #{ryxxcsrq,jdbcType=DATE},
+      </if>
+      <if test="ryrqcgsj != null" >
+        ryrqcgsj = #{ryrqcgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxdh != null" >
+        ryxxlxdh = #{ryxxlxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxwhcd != null" >
+        ryxxwhcd = #{ryxxwhcd,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyxzy != null" >
+        ryxxyxzy = #{ryxxyxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxdwxz != null" >
+        ryxxdwxz = #{ryxxdwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg01 != null" >
+        ryxxjg01 = #{ryxxjg01,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg02 != null" >
+        ryxxjg02 = #{ryxxjg02,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxjg03 != null" >
+        ryxxjg03 = #{ryxxjg03,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyb00 != null" >
+        ryxxyb00 = #{ryxxyb00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxs0 != null" >
+        ryxxlxs0 = #{ryxxlxs0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxs1 != null" >
+        ryxxlxs1 = #{ryxxlxs1,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxlxqx != null" >
+        ryxxlxqx = #{ryxxlxqx,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxxxdz != null" >
+        ryxxxxdz = #{ryxxxxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxqtsm != null" >
+        ryxxqtsm = #{ryxxqtsm,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxzp00 != null" >
+        ryxxzp00 = #{ryxxzp00,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxyxbz != null" >
+        ryxxyxbz = #{ryxxyxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczdm != null" >
+        ryxxczdm = #{ryxxczdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczr0 != null" >
+        ryxxczr0 = #{ryxxczr0,jdbcType=VARCHAR},
+      </if>
+      <if test="ryxxczsj != null" >
+        ryxxczsj = #{ryxxczsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="motiondzobject != null" >
+        motiondzobject = #{motiondzobject,jdbcType=VARCHAR},
+      </if>
+      <if test="motionjgobject != null" >
+        motionjgobject = #{motionjgobject,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ryxxryid = #{ryxxryid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.portal.login.domain.WyryxxPo" >
+    update wy_ryxx
+    set ryxxxm00 = #{ryxxxm00,jdbcType=VARCHAR},
+      ryxxxb00 = #{ryxxxb00,jdbcType=VARCHAR},
+      ryxxsfz0 = #{ryxxsfz0,jdbcType=VARCHAR},
+      ryxxmz00 = #{ryxxmz00,jdbcType=VARCHAR},
+      ryxxcsrq = #{ryxxcsrq,jdbcType=DATE},
+      ryrqcgsj = #{ryrqcgsj,jdbcType=VARCHAR},
+      ryxxlxdh = #{ryxxlxdh,jdbcType=VARCHAR},
+      ryxxwhcd = #{ryxxwhcd,jdbcType=VARCHAR},
+      ryxxyxzy = #{ryxxyxzy,jdbcType=VARCHAR},
+      ryxxdwxz = #{ryxxdwxz,jdbcType=VARCHAR},
+      ryxxjg01 = #{ryxxjg01,jdbcType=VARCHAR},
+      ryxxjg02 = #{ryxxjg02,jdbcType=VARCHAR},
+      ryxxjg03 = #{ryxxjg03,jdbcType=VARCHAR},
+      ryxxyb00 = #{ryxxyb00,jdbcType=VARCHAR},
+      ryxxlxs0 = #{ryxxlxs0,jdbcType=VARCHAR},
+      ryxxlxs1 = #{ryxxlxs1,jdbcType=VARCHAR},
+      ryxxlxqx = #{ryxxlxqx,jdbcType=VARCHAR},
+      ryxxxxdz = #{ryxxxxdz,jdbcType=VARCHAR},
+      ryxxqtsm = #{ryxxqtsm,jdbcType=VARCHAR},
+      ryxxzp00 = #{ryxxzp00,jdbcType=VARCHAR},
+      ryxxyxbz = #{ryxxyxbz,jdbcType=VARCHAR},
+      ryxxczdm = #{ryxxczdm,jdbcType=VARCHAR},
+      ryxxczr0 = #{ryxxczr0,jdbcType=VARCHAR},
+      ryxxczsj = #{ryxxczsj,jdbcType=TIMESTAMP},
+      motiondzobject = #{motiondzobject,jdbcType=VARCHAR},
+      motionjgobject = #{motionjgobject,jdbcType=VARCHAR}
+    where ryxxryid = #{ryxxryid,jdbcType=VARCHAR}
+  </update>
+</mapper>
